@@ -1,0 +1,66 @@
+<!-- secure_file_transfer\templates\file_transfer\dashboard.html -->
+{% extends "file_transfer/base.html" %}
+{% load static %}
+
+{% block content %}
+<div x-data="{ activeTab: 'upload' }">
+    <div class="p-6">
+        <h1 class="text-3xl font-mono flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Secure File Transfer
+        </h1>
+        <p class="text-green-300 mt-2">Transfer files with end-to-end encryption</p>
+    </div>
+
+    <div class="border-b border-green-800">
+        <nav class="flex space-x-4 px-6 bg-gray-800">
+            <button 
+                @click="activeTab = 'upload'"
+                :class="{'bg-green-800': activeTab === 'upload'}"
+                class="py-2 px-4 text-green-500 hover:bg-green-800 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                </svg>
+                Upload
+            </button>
+            <button 
+                @click="activeTab = 'download'" 
+                :class="{'bg-green-800': activeTab === 'download'}"
+                class="py-2 px-4 text-green-500 hover:bg-green-800 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download
+            </button>
+            <button 
+                @click="activeTab = 'history'"
+                :class="{'bg-green-800': activeTab === 'history'}"
+                class="py-2 px-4 text-green-500 hover:bg-green-800 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                History
+            </button>
+        </nav>
+    </div>
+
+    <div class="p-6">
+        <!-- Upload Tab -->
+        <div x-show="activeTab === 'upload'">
+            {% include "file_transfer/upload.html" %}
+        </div>
+
+        <!-- Download Tab -->
+        <div x-show="activeTab === 'download'">
+            {% include "file_transfer/download.html" %}
+        </div>
+
+        <!-- History Tab -->
+        <div x-show="activeTab === 'history'">
+            {% include "file_transfer/history.html" %}
+        </div>
+    </div>
+</div>
+{% endblock %}

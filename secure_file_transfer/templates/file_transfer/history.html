@@ -1,0 +1,42 @@
+<!-- secure_file_transfer\templates\file_transfer\history.html -->
+<div class="overflow-x-auto">
+    <table class="w-full text-sm text-left text-green-500">
+        <thead class="text-xs uppercase bg-gray-800">
+            <tr>
+                <th scope="col" class="px-6 py-3 text-green-500">Type</th>
+                <th scope="col" class="px-6 py-3 text-green-500">Filename</th>
+                <th scope="col" class="px-6 py-3 text-green-500">Date</th>
+                <th scope="col" class="px-6 py-3 text-green-500">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transfer in transfers %}
+            <tr class="border-b bg-gray-900 border-green-800">
+                <td class="px-6 py-4 flex items-center">
+                    {% if transfer.type == 'upload' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                    {% else %}
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                    {% endif %}
+                    {{ transfer.type }}
+                </td>
+                <td class="px-6 py-4">{{ transfer.filename }}</td>
+                <td class="px-6 py-4">{{ transfer.date }}</td>
+                <td class="px-6 py-4">
+                    <span class="
+                        {% if transfer.status == 'Completed' %}text-green-400
+                        {% elif transfer.status == 'Failed' %}text-red-400
+                        {% else %}text-yellow-400{% endif %}
+                    ">
+                        {{ transfer.status }}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,25 @@
+```
+secure_file_transfer/
+│
+├── file_transfer/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── views.py
+│   ├── forms.py
+│   ├── urls.py
+│   └── encryption.py
+│
+├── templates/
+│   └── file_transfer/
+│       ├── base.html
+│       ├── dashboard.html
+│       ├── upload.html
+│       ├── download.html
+│       └── history.html
+│
+├── static/
+│   └── css/
+│       └── cybersecurity.css
+│
+└── requirements.txt
+```

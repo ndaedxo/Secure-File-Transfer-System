@@ -1,0 +1,33 @@
+<!-- secure_file_transfer\templates\file_transfer\download.html -->
+<div class="space-y-4" x-data="{ downloadLink: '', progress: 0 }">
+    <div class="flex items-center space-x-2">
+        <input 
+            type="text" 
+            x-model="downloadLink"
+            placeholder="Enter secure download link"
+            class="w-full bg-gray-800 text-green-500 border border-green-500 rounded p-2"
+        />
+        <button 
+            @click="startDownload"
+            :disabled="!downloadLink"
+            class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded flex items-center"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download
+        </button>
+    </div>
+
+    <template x-if="progress > 0">
+        <div class="space-y-2">
+            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                <div 
+                    class="bg-green-600 h-2.5 rounded-full" 
+                    :style="`width: ${progress}%`"
+                ></div>
+            </div>
+            <p class="text-sm text-green-300" x-text="`Download progress: ${progress}%`"></p>
+        </div>
+    </template>
+</div>
