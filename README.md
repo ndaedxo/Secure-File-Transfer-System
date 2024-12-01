@@ -1,4 +1,3 @@
-Here's a template for your **README.md** file. This will describe the project, how to set it up, and how to use it.
 
 ---
 
@@ -124,5 +123,3 @@ If you would like to contribute to this project, feel free to fork the repositor
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-This README file provides basic setup instructions, project details, and how users can interact with your system. You can further enhance it by including more detailed instructions or contributing guidelines if needed.
