@@ -118,6 +118,13 @@ If you would like to contribute to this project, feel free to fork the repositor
 
 ---
 
+## 👤 Author
+
+Ndaedzo Austin Mukhuba
+- GitHub: [@ndaedzo](https://github.com/ndaedxo)
+- LinkedIn: [Ndaedzo Austin Mukhuba](https://linkedin.com/in/ndaedzo-mukhuba-71759033b)
+- Email: [ndaemukhuba](ndaemukhuba@gmail.com)
+  
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
